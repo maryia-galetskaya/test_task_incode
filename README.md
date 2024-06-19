@@ -11,32 +11,36 @@ It is wrapped in a Docker container for easy deployment and testing.
 
 ## Running the Application Locally
 
-1. Clone the repository:
+1. Create a directory for the project and navigate into it:
    ```sh
-   git clone https://github.com/maryia-galetskaya/test_task_incode.git
+   mkdir hands_up_detection
    cd hands_up_detection
    ```
 
-2. Build the Docker image:
+2. Clone the repository:
+    ```sh
+   git clone https://github.com/maryia-galetskaya/test_task_incode.git
+   ```
+
+3. Build the Docker image:
     ```sh
     docker build -t fastapi-app .
     ```
 
-3. Run the Docker container:
+4. Run the Docker container:
     ```sh
     docker run -p 8000:8000 fastapi-app
     ```
 
-4. The application will be available at http://127.0.0.1:8000
+5. The application will be available at http://127.0.0.1:8000
 ### Utilizing the API
 You can utilize the interactive documentation provided by FastAPI to use the API.
 
 1. Open your browser and go to http://127.0.0.1:8000/docs.
-2. Use the `/detect_hands` endpoint to upload your image and test the API.
+2. Use the `/detect_hands/` endpoint to upload your image and test the API.
 
 The interactive documentation allows you to upload an image directly and see the response from the server.
 
-<br>
 <br>
 
 ## Running Tests
@@ -52,8 +56,6 @@ To run the tests inside the Docker container:
     docker run --rm -v $(pwd):/app fastapi-app pytest
     ```
 
-<br>
-<br>
 <br>
 <br>
 

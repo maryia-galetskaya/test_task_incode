@@ -11,7 +11,7 @@ def test_upload_image():
 
     with open(test_image_path, "rb") as image_file:
         response = client.post(
-            "/detect_hands",
+            "/detect_hands/",
             files={"file": ("test_image.jpg", image_file, "image/jpeg")}
         )
 

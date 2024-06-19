@@ -5,7 +5,7 @@ from utils.pose_operations import are_hands_above, get_landmarks_from_file
 
 app = FastAPI()
 
-@app.post("/detect_hands")
+@app.post("/detect_hands/")
 def upload_image(file: UploadFile = File(...)):
     valid_image_types = ["image/png", "image/jpeg", "image/jpg"]
     
