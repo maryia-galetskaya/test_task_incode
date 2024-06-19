@@ -20,6 +20,7 @@ It is wrapped in a Docker container for easy deployment and testing.
 2. Clone the repository:
     ```sh
    git clone https://github.com/maryia-galetskaya/test_task_incode.git
+   cd test_task_incode
    ```
 
 3. Build the Docker image:
