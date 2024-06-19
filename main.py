@@ -12,6 +12,7 @@ def upload_image(file: UploadFile = File(...)):
     if file.content_type not in valid_image_types:
         raise HTTPException(status_code=400, detail="Invalid file type. Only PNG, JPG, and JPEG files are allowed.")
 
+    file_path = None
     try:
         file_path = save_file(file)
         landmarks = get_landmarks_from_file(file_path)
@@ -21,7 +22,8 @@ def upload_image(file: UploadFile = File(...)):
         print(e)
         raise HTTPException(status_code=500, detail="An unexpected error occurred while processing the image.")
     finally:
-        delete_file(file_path)
+        if file_path:
+            delete_file(file_path)
 
     return JSONResponse(content={"hands_above_head": result})
 

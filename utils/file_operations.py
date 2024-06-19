@@ -8,6 +8,8 @@ def save_file(file: UploadFile) -> str:
     Save the uploaded file to a temporary location.
     """
     try:
+        os.makedirs('media', exist_ok=True)
+        
         file_location = f"media/{file.filename}"
         with open(file_location, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
